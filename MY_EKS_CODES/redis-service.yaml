@@ -19,7 +19,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: redis
+    service: redis
   type: ClusterIP
   sessionAffinity: None
   sessionAffinityConfig:

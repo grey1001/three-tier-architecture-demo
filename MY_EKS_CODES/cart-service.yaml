@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: cart
+    service: cart
   type: ClusterIP
   ports:
   - name: http

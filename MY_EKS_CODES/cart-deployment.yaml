@@ -4,7 +4,7 @@ metadata:
   name: cart
   namespace: default
   labels:
-    app: cart
+    service: cart
 spec:
   replicas: 1
   selector:

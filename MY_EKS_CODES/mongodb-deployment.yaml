@@ -1,42 +1,30 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mongodbpvc 
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 16Gi
----
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: mongodbrs
+  name: mongodb
+  labels:
+    service: mongodb
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      service: mongodb
   template:
-     metadata:
-       name: mongodbpod
-       labels:
-         app: mongodb
-     spec:
-       volumes:
-       - name: pvc
-         persistentVolumeClaim:
-           claimName: mongodbpvc     
-       containers:
-       - name: mongodbcontainer
-         image: mongo
-         ports:
-         - containerPort: 27017
-         env:
-         - name: MONGO_INITDB_ROOT_USERNAME
-           value: devdb
-         - name: MONGO_INITDB_ROOT_PASSWORD
-           value: devdb@123
-         volumeMounts:
-         - name: pvc
-           mountPath: /data/db  
+    metadata:
+      labels:
+        service: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: robotshop/rs-mongodb:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+      restartPolicy: Always

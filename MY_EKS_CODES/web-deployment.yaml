@@ -4,7 +4,7 @@ metadata:
   name: web
   namespace: default
   labels:
-    app: web
+    service: web
 spec:
   replicas: 1
   selector:

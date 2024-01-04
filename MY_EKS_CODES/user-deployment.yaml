@@ -4,7 +4,7 @@ metadata:
   name: user
   namespace: default
   labels:
-    app: user
+    service: user
 spec:
   replicas: 1
   selector:

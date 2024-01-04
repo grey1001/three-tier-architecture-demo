@@ -4,7 +4,7 @@ metadata:
   name: shipping
   namespace: default
   labels:
-    app: shipping
+    service: shipping
 spec:
   replicas: 1
   selector:

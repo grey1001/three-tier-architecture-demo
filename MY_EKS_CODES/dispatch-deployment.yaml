@@ -4,7 +4,7 @@ metadata:
   name: dispatch
   namespace: default
   labels:
-    app: dispatch
+    service: dispatch
 spec:
   replicas: 1
   selector:

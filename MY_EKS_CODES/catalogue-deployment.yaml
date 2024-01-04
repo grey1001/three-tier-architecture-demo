@@ -4,7 +4,7 @@ metadata:
   name: catalogue
   namespace: default
   labels:
-    app: catalogue
+    service: catalogue
 spec:
   replicas: 1
   selector:

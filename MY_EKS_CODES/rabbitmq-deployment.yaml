@@ -4,7 +4,7 @@ metadata:
   name: rabbitmq
   namespace: default
   labels:
-    app: rabbitmq
+    service: rabbitmq
 spec:
   replicas: 1
   selector:

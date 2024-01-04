@@ -4,7 +4,7 @@ metadata:
   name: payment
   namespace: default
   labels:
-    app: payment
+    service: payment
 spec:
   replicas: 1
   selector:
